@@ -6,30 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="/styles/main.css">
-    <title>Авторы</title>
+    <title>Жанры</title>
 </head>
 <body>
     <header>
         <%- include('header'); %>
     </header>
-    <div class="author-list">
+    <div class="genre-list">
         <div class="container">
-            <ol class="author-list-list">
+            <ol class="genre-list-list">
 
             </ol>
         </div>
     </div>
-    <div class="add-author">
+    <div class="add-genre">
         <div class="container">
-            <form action="" class="add-author-form">
-                <input type="text" name="authorName" placeholder="Введите автора...">
-                <br><select name="genre" class="genre-list-select">
-
-                </select>
+            <form action="" class="add-genre-form">
+                <input type="text" name="genreName" placeholder="Введите жанр...">
                 <br><button type="submit">Добавить</button>
             </form>
         </div>
     </div>
-    <script src="/js/authors.js"></script>
+    <script src="/js/genres.js"></script>
 </body>
 </html>

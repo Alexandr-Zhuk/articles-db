@@ -11,7 +11,7 @@ const schemaAddArticle = {
             minLength: 10,
         },
         author: {
-            type: 'integer'
+            type: 'string'
         },
     },
     required: ['articleName', 'articleText', 'author'],
@@ -25,6 +25,21 @@ const schemaAddAuthor = {
             type: 'string',
             minLength: 2,
             maxLength: 20
+        },
+        genre: {
+            type: 'string'
+        },
+    },
+    additionalProperties: false,
+};
+
+const schemaAddGenre = {
+    type: 'object',
+    properties: {
+        genreName: {
+            type: 'string',
+            minLength: 2,
+            maxLength: 20
         }
     },
     additionalProperties: false,
@@ -32,3 +47,4 @@ const schemaAddAuthor = {
 
 module.exports.schemaAddArticle = schemaAddArticle;
 module.exports.schemaAddAuthor = schemaAddAuthor;
+module.exports.schemaAddGenre = schemaAddGenre;

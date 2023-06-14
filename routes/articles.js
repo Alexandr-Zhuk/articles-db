@@ -16,15 +16,14 @@ router.get('/add', (req, res) => {
     res.render('add_article');
 });
 
-router.post('/add/create', upload.none(), (req, res) => {
+router.post('/add/create', upload.none(), async(req, res) => {
     let data = req.body;
-    data.author = Number(data.author);
-
+    console.log(data);
     const validate = ajv.compile(schemas.schemaAddArticle);
     const valid = validate(data);
     
     if(valid){  
-        articleController.addArticle(data);
+        await articleController.addArticle(data);
         res.json('Article added');
     }else{
         res.json(validate.errors[0].message);

@@ -8,8 +8,8 @@ const getArticle = async(id) => {
     return await articleModel.getOneArticle(id);   
 };
 
-const addArticle = (data) => {
-    articleModel.addArticle(data);
+const addArticle = async(data) => {
+    await articleModel.addArticle(data);
 };
 
 module.exports.getAllArticles = getAllArticles;

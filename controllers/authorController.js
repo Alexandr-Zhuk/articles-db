@@ -1,15 +1,15 @@
 const authorModel = require('../models/authorModel');
 
-const getAuthorsList = () => {
-    return authorModel.getAuthorsList();
+const getAuthorsList = async() => {
+    return await authorModel.getAuthorsList();
 };
 
 const getAuthor = (id) => {
     return authorModel.getOneAuthor(id);
 };
 
-const addAuthor = (data) => {
-    authorModel.addAuthor(data);
+const addAuthor = async(data) => {
+    await authorModel.addAuthor(data);
 };
 
 const updateAuthor = (data) => {

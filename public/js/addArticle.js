@@ -1,14 +1,16 @@
 const articleForm = document.querySelector('.add-article-form');
 const authorsListSelect = document.querySelector('.author-list-select');
+const genresListSelect = document.querySelector('.genre-list-select');
+
 
 const getAuthorsList = async () => {
     const data = await axios.get('/authors/list');
     let html = '';
     data.data.forEach((item) => {
-        html += `<option value="${item.id}">${item.authorName}</option>`;
+        html += `<option value="${item._id}">${item.authorName}</option>`;
     });
     authorsListSelect.innerHTML = html;
-
+    
 };
 
 getAuthorsList();
@@ -21,4 +23,4 @@ const addArticle = async (ev) => {
     console.log(data.data)
 };
 
-articleForm.addEventListener('submit', addArticle)
+articleForm.addEventListener('submit', addArticle);

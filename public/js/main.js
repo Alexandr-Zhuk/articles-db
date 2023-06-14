@@ -12,14 +12,18 @@ const renderArticle = (data) => {
             ${data.data.articleText}
         </div>
         <div class="author">
-            Автор: <span>${data.data.author}</span>
-        </div>`;
+            Автор: <span>${data.data.author.authorName}</span>
+        </div>
+        <div class="genre">
+        Жанр автора: <span>${data.data.author.genre.genreName}</span>
+    </div>`;
     articleData.innerHTML = html;
 };
 
 const viewArticle = async () => {
     const data = await axios.get(newUrl);
     currentIdArticle = data.data.id;
+    console.log(data.data);
     renderArticle(data);
 };
 

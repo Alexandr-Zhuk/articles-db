@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
+const authorMode = require('./authorModel');
+const genreModel = require('./genreModel');
 
 const { Schema } = mongoose;
 
 const articleSchema = new Schema({
     articleName: {type: String, min: 3},
     articleText: {type: String, min: 3}, 
-    author: {type: Number}
+    author: {type: Schema.Types.ObjectId, ref: 'author'}
 });
 
 const getAllArticles = async() => {
@@ -14,7 +16,13 @@ const getAllArticles = async() => {
 };
 
 const getOneArticle = async(id) => {
-    return await model.findById(id);
+    return await model.findById(id)
+    .populate({
+        path: 'author',
+        populate: { 
+            path: 'genre'
+        }
+    });
 };
 
 const addArticle = async(data) => {

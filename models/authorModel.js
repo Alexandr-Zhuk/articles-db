@@ -1,27 +1,33 @@
-const authorsList = [
-    {id: 1, authorName: 'Taras Shevchenko'},
-    {id: 2, authorName: 'Grygoriy Skovoroda'},
-    {id: 3, authorName: 'Lesya Ukrainka'},
-];
+const mongoose = require('mongoose');
+const genreModel = require('./genreModel');
 
-const getAuthorsList = () => {
-    return authorsList;
+const { Schema } = mongoose;
+
+const authorSchema = new Schema({
+    authorName: {type: String, min: 3},
+    genre: {type: Schema.Types.ObjectId, ref: 'genre'}
+});
+
+const getAuthorsList = async() => {
+    return await model.find({});
 };
 
 const getOneAuthor = (id) => {
     return authorsList.find(item => item.id === id);
 };
 
-const addAuthor = (data) => {
-    authorsList.push({id: authorsList.length + 1, authorName: data.authorName});
-    getAuthorsList();
+const addAuthor = async (data) => {
+    await model.create(data);
 }
 
-const updateAuthor = (data) => {
-    const findElem = authorsList.find(item => item.id === data.id);
-    findElem.authorName = data.newName;
+const updateAuthor = async(data) => {
+    await model.findByIdAndUpdate(data._id, data);
 };
 
+const model = mongoose.model('author', authorSchema);
+
+
+module.exports.authorModel = model;
 module.exports.getOneAuthor = getOneAuthor;
 module.exports.getAuthorsList = getAuthorsList;
 module.exports.addAuthor = addAuthor;
