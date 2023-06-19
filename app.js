@@ -2,6 +2,7 @@ const express = require('express');
 const articlesRouter = require('./routes/articles');
 const authorsRouter = require('./routes/authors');
 const genresRouter = require('./routes/genres');
+const commentsRouter = require('./routes/comments');
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://127.0.0.1:27017/blogTest');
@@ -20,4 +21,5 @@ server.use(express.static(__dirname + '/public'));
 server.use('/articles', articlesRouter);
 server.use('/authors', authorsRouter);
 server.use('/genres', genresRouter);
+server.use('/comments', commentsRouter);
 

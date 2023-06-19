@@ -59,4 +59,17 @@ body {
   font-size: 13px;
   margin-left: 10px;
   cursor: pointer;
+}
+
+.comments .answer-question {
+  margin-left: 30px;
+  font-size: 12px;
+  color: blue;
+  cursor: pointer;
+}
+.comments .answered {
+  background-color: aqua;
+  margin-left: 20px;
+  padding: 10px;
+  border-radius: 10px;
 }/*# sourceMappingURL=main.css.map */

@@ -48,4 +48,9 @@ router.get('/view-article/:id/view', async(req, res) => {
     res.json(article);
 });
 
+router.get('/view-article/:id/comments', async(req, res) => {
+    const comments = await articleController.getComments(req.params.id);
+    res.json(comments);
+});
+
 module.exports = router;
